@@ -2,6 +2,7 @@
 #define Pedido_h
 #include<iostream>
 #include<string>
+#include "cliente.h"
 using namespace std;
 
 struct ClienteMesa {          
