@@ -81,12 +81,13 @@ void realizarPedido(menu &m, cliente &c){
 
 void imprimeFactura(factura &f){
 	system("cls");
-	cout<<"----------------"<<endl<<"BOLETA"<<endl<<"----------------"<<endl;
-	cout<<"\n";
 	
 	if(f.opc==1){
-		cout<<"FECHA: "<<f.d<<"/"<<f.s<<"/"<<f.a<<endl;
-	       for(int i=0;i<f.cant;i++){           	           
+		
+	       for(int i=0;i<f.cant;i++){
+			  cout<<"----------------"<<endl<<"BOLETA"<<endl<<"----------------"<<endl;
+			  cout<<"\n";      
+			  cout<<"FECHA: "<<f.d<<"/"<<f.s<<"/"<<f.a<<endl;     	           
               cout<<"Nombre del cliente: "<<f.mesas[i].nom<<endl;
               cout<<"Mesa: "<<f.mesas[i].mesa<<endl;      
 			
@@ -105,8 +106,11 @@ void imprimeFactura(factura &f){
 	}
 	else{
 	     if(f.opc==2){
-         cout<<"FECHA: "<<f.d<<"/"<<f.s<<"/"<<f.a<<endl;
+         
             for(int i=0;i<f.cantdeli;i++){
+				cout<<"----------------"<<endl<<"BOLETA"<<endl<<"----------------"<<endl;
+			    cout<<"\n";
+				cout<<"FECHA: "<<f.d<<"/"<<f.s<<"/"<<f.a<<endl;
                 cout<<"Nombre del cliente: "<<f.entregas[i].nomd<<endl;
                 cout<<"Direccion: "<<f.entregas[i].direct<<endl;
                 cout<<"Ingrese el DNI: "<<f.entregas[i].dni<<endl;
