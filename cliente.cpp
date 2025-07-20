@@ -5,6 +5,11 @@
 #include"cliente.h"
 using namespace std;
 
+#define BOLD "\033[1m"
+#define RESET "\033[0m"
+#define CYAN "\033[36m"
+#define YELLOW "\033[33m"
+
 void realizarPedido(menu &m, cliente &c){
 	int opn,cantidad,item;
 	do{
@@ -85,7 +90,9 @@ void imprimeFactura(factura &f){
 	if(f.opc==1){
 		
 	       for(int i=0;i<f.cant;i++){
-			  cout<<"----------------"<<endl<<"BOLETA"<<endl<<"----------------"<<endl;
+			  cout<<BOLD<<CYAN<<"----------------"<<RESET<<endl;
+			  cout<<BOLD<<CYAN<<"BOLETA"<<RESET<<endl;
+			  cout<<BOLD<<CYAN<<"----------------"<<RESET<<endl;
 			  cout<<"\n";      
 			  cout<<"FECHA: "<<f.d<<"/"<<f.s<<"/"<<f.a<<endl;     	           
               cout<<"Nombre del cliente: "<<f.mesas[i].nom<<endl;
@@ -108,7 +115,9 @@ void imprimeFactura(factura &f){
 	     if(f.opc==2){
          
             for(int i=0;i<f.cantdeli;i++){
-				cout<<"----------------"<<endl<<"BOLETA"<<endl<<"----------------"<<endl;
+				cout<<BOLD<<CYAN<<"----------------"<<RESET<<endl;
+				cout<<BOLD<<CYAN<<"BOLETA"<<RESET<<endl;
+				cout<<BOLD<<CYAN<<"----------------"<<RESET<<endl;
 			    cout<<"\n";
 				cout<<"FECHA: "<<f.d<<"/"<<f.s<<"/"<<f.a<<endl;
                 cout<<"Nombre del cliente: "<<f.entregas[i].nomd<<endl;
@@ -134,13 +143,13 @@ void imprimeFactura(factura &f){
 
 void promoEspecial(factura &f,cliente &c){                          //promociones
 	if(f.d==25 && f.s==12){
-		cout<<endl<<"----PROMOCION DE NAVIDAD----"<<endl;
+		cout<<endl<<BOLD<<YELLOW<<"----PROMOCION DE NAVIDAD----"<<RESET<<endl;
 			
 	}else if(f.d==31 && f.s==12){
-		cout<<endl<<"----PROMOCION DE ANIO NUEVO----"<<endl;
+		cout<<endl<<BOLD<<YELLOW<<"----PROMOCION DE ANIO NUEVO----"<<RESET<<endl;
 		
 	}else if(f.d==31 && f.s==10){
-		cout<<endl<<"----PROMOCION DE HALLOWEEN----"<<endl;
+		cout<<endl<<BOLD<<YELLOW<<"----PROMOCION DE HALLOWEEN----"<<RESET<<endl;
 	}
 	cout<<"Descuento del 10%"<<endl;
 	float desc=c.monto-(c.monto*0.10);

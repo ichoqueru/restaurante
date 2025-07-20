@@ -5,6 +5,11 @@
 #include"cliente.h"
 using namespace std;
 
+#define BOLD "\033[1m"
+#define RESET "\033[0m"
+#define CYAN "\033[36m"
+#define YELLOW "\033[33m"
+
 int main(){
     int op,comida,pedido,eleccion;
     string bebidas[10];
@@ -31,7 +36,9 @@ int main(){
 
     do{
         system("cls");  
-        cout<<"---------------"<<endl<<"MENU DE OPCIONES"<<endl<<"---------------"<<endl;
+        cout<<BOLD<<CYAN<<"---------------"<<RESET<<endl;
+		cout<<BOLD<<CYAN<<"MENU DE OPCIONES"<<RESET<<endl;
+		cout<<BOLD<<CYAN<<"---------------"<<RESET<<endl;
         cout<<"1. Encargado"<<endl;
         cout<<"2. Cliente"<<endl;
         cout<<"0. Salir"<<endl;
@@ -40,8 +47,11 @@ int main(){
             case 1:  //encargado
             	do{
             		system("cls");  
-                    cout<<"---------------"<<endl<<"ENCARGADO"<<endl<<"---------------"<<endl;
-                    cout<<"---MENU DEL DIA---"<<endl;
+                    cout<<BOLD<<CYAN<<"---------------"<<RESET<<endl;
+					cout<<BOLD<<CYAN<<"ENCARGADO"<<RESET<<endl;
+					cout<<BOLD<<CYAN<<"---------------"<<RESET<<endl;
+					cout<<"\n";
+                    cout<<BOLD<<YELLOW<<"---MENU DEL DIA---"<<RESET<<endl;
                     cout<<"1. Bebidas"<<endl;
                     cout<<"2. Plato de fondo"<<endl;
                     cout<<"3. Postres"<<endl;
@@ -53,7 +63,7 @@ int main(){
                         case 1:   //bebidas
                         
                         system("cls");                        
-                        cout<<"---BEBIDAS---"<<endl;
+                        cout<<BOLD<<CYAN<<"---BEBIDAS---"<<RESET<<endl;
                         cout<<"Ingrese la cantidad de bebidas: "; cin>>m.cantB;
                         cin.ignore();
                         for(int i=0;i<m.cantB;i++){
@@ -70,7 +80,7 @@ int main(){
                         case 2:    //plato de fondo
                         
                            system("cls");
-                			cout<<"---PLATO DE FONDO---"<<endl;
+                			cout<<BOLD<<CYAN<<"---PLATO DE FONDO---"<<RESET<<endl;
                 			cout<<"Ingrese la cantidad de platillos: "; cin>>m.cantC;
                 			cin.ignore();
                 			for(int i=0;i<m.cantC;i++){
@@ -87,7 +97,7 @@ int main(){
                 		case 3:  //postres
                 		
                             system("cls");
-                			cout<<"---POSTRES---"<<endl;
+                			cout<<BOLD<<CYAN<<"---POSTRES---"<<RESET<<endl;
                 			cout<<"Ingrese la cantidad de postres: "; cin>>m.cantP;
                 			cin.ignore();
                 			for(int i=0;i<m.cantP;i++){
@@ -108,8 +118,11 @@ int main(){
 
             case 2:   //cliente        
             system("cls");
-            cout<<"---------------"<<endl<<"CLIENTE"<<endl<<"---------------"<<endl;
-            cout<<"---TIPO DE PEDIDO---"<<endl;
+            cout<<BOLD<<CYAN<<"---------------"<<RESET<<endl;
+			cout<<BOLD<<CYAN<<"CLIENTE"<<RESET<<endl;
+			cout<<BOLD<<CYAN<<"---------------"<<RESET<<endl;
+			cout<<"\n";
+            cout<<BOLD<<YELLOW<<"---TIPO DE PEDIDO---"<<RESET<<endl;
             cout<<"1) Delivery"<<endl;
             cout<<"2) Para la mesa"<<endl;
             cout<<"Elige el tipo de pedido: "; cin>>pedido;
@@ -117,7 +130,7 @@ int main(){
             switch(pedido){
                 case 1:  //delivery
                 system("cls");               
-                cout<<"\n"<<"---DELIVERY---"<<endl;
+                cout<<"\n"<<BOLD<<CYAN<<"---DELIVERY---"<<RESET<<endl;
                 cout<<"Cantidad de clientes: "; cin>>f.cantdeli;
                 cout<<"\n";
                 cout<<"FECHA: ";
@@ -135,7 +148,7 @@ int main(){
                 f.mesas[i].nom=f.entregas[i].nomd;
                 f.mesas[i].monto=0;
                 f.mesas[i].cantPedidos=0;
-                
+
                 realizarPedido(m,f.mesas[i]); //realizar el pedido
                 }
                 imprimeFactura(f);  //entrega la boleta
@@ -143,7 +156,7 @@ int main(){
 
                 case 2:    //para la mesa
                 system("cls");
-                cout<<"\n"<<"---PARA LA MESA---"<<endl;
+                 cout<<"\n"<<BOLD<<CYAN<<"---PARA LA MESA---"<<RESET<<endl;
                 cout<<"Cantidad de clientes: "; cin>>f.cant;
                 cout<<"\n";
                 cout<<"FECHA: ";
