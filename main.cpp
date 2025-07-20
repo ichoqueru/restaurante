@@ -132,6 +132,10 @@ int main(){
                 cout<<"Ingrese el telefono: "; cin>>f.entregas[i].telefono;
                 cout<<"\n";
                 
+                f.mesas[i].nom=f.entregas[i].nomd;
+                f.mesas[i].monto=0;
+                f.mesas[i].cantPedidos=0;
+                
                 realizarPedido(m,f.mesas[i]); //realizar el pedido
                 }
                 imprimeFactura(f);  //entrega la boleta

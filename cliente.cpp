@@ -98,6 +98,8 @@ void imprimeFactura(factura &f){
               }
               cout<<"TOTAL: S/."<<f.mesas[i].monto<<endl;
               cout<<"\n";  
+			  promoEspecial(f,f.mesas[i]);
+              cout<<"\n"; 
               cout<<"----------------------------------------------------------------"<<endl;
            }		
 	}
@@ -117,9 +119,26 @@ void imprimeFactura(factura &f){
                    cout<<"S/."<<f.mesas[i].pedidos[j].precio * f.mesas[i].pedidos[j].cantidad<<endl;
                 }
                 cout<<"TOTAL: S/."<<f.mesas[i].monto<<endl;
+                cout<<"\n";
+				promoEspecial(f,f.mesas[i]);          
                 cout<<"\n";		
                 cout<<"----------------------------------------------------------------"<<endl;
 	        } 
          }
     }
+}
+
+void promoEspecial(factura &f,cliente &c){                          //promociones
+	if(f.d==25 && f.s==12){
+		cout<<endl<<"----PROMOCION DE NAVIDAD----"<<endl;
+			
+	}else if(f.d==31 && f.s==12){
+		cout<<endl<<"----PROMOCION DE ANIO NUEVO----"<<endl;
+		
+	}else if(f.d==31 && f.s==10){
+		cout<<endl<<"----PROMOCION DE HALLOWEEN----"<<endl;
+	}
+	cout<<"Descuento del 10%"<<endl;
+	float desc=c.monto-(c.monto*0.10);
+	cout<<"\nTotal a pagar: "<<desc<<endl;
 }

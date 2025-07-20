@@ -34,6 +34,6 @@ struct factura{
 
 void imprimeFactura(factura &);
 void realizarPedido(menu &, cliente &);
-
+void promoEspecial(factura &, cliente &);
 
 #endif
